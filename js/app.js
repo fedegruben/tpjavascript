@@ -148,6 +148,30 @@ document.querySelector("#abrir-carrito").addEventListener("click", abrirCarrito)
 document.querySelector("#cerrar-carrito").addEventListener("click", cerrarCarrito);
 fondoCarrito.addEventListener("click", cerrarCarrito);
 
+botonFinalizar.addEventListener("click", async () => {
+    const resultado = await Swal.fire({
+        title: "Finalizar compra",
+        text: "¿Queres confirmar la compra de las cartas del carrito?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Si, comprar",
+        cancelButtonText: "Seguir mirando"
+    });
+
+    if (resultado.isConfirmed) {
+        carrito = [];
+        mostrarCarrito();
+        cerrarCarrito();
+
+        await Swal.fire({
+            title: "Compra realizada",
+            text: "Gracias por comprar en PokeDeck.",
+            icon: "success",
+            confirmButtonText: "Aceptar"
+        });
+    }
+});
+
 buscadorProductos.addEventListener("input", () => {
     const textoBuscado = buscadorProductos.value.toLowerCase().trim();
     const productosFiltrados = productos.filter((producto) =>
