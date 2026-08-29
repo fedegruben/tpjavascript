@@ -76,6 +76,17 @@ function mostrarCarrito() {
     cantidadCarrito.textContent = cantidadTotal;
     totalCarrito.textContent = `$${precioTotal.toLocaleString("es-AR")}`;
     botonFinalizar.disabled = carrito.length === 0;
+    localStorage.setItem("carritoPokeDeck", JSON.stringify(carrito));
+}
+
+function cargarCarritoGuardado() {
+    try {
+        const carritoGuardado = JSON.parse(localStorage.getItem("carritoPokeDeck"));
+        carrito = carritoGuardado || [];
+    } catch (error) {
+        carrito = [];
+        localStorage.removeItem("carritoPokeDeck");
+    }
 }
 
 function agregarAlCarrito(idProducto) {
@@ -148,4 +159,5 @@ buscadorProductos.addEventListener("input", () => {
 });
 
 cargarProductos();
+cargarCarritoGuardado();
 mostrarCarrito();
