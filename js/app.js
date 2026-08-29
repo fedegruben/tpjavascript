@@ -11,6 +11,7 @@ const botonFinalizar = document.querySelector("#finalizar-compra");
 let productos = [];
 let carrito = [];
 
+// Creo las tarjetas con los productos recibidos del JSON.
 function mostrarProductos(listaProductos) {
     if (listaProductos.length === 0) {
         contenedorProductos.innerHTML = '<p class="sin-resultados">No se encontraron cartas.</p>';
@@ -30,6 +31,7 @@ function mostrarProductos(listaProductos) {
     `).join("");
 }
 
+// Cargo los productos cuando inicia la pagina.
 async function cargarProductos() {
     try {
         const respuesta = await fetch("data/productos.json");
@@ -52,6 +54,7 @@ async function cargarProductos() {
     }
 }
 
+// Actualizo los productos, la cantidad y el total del carrito.
 function mostrarCarrito() {
     if (carrito.length === 0) {
         productosCarrito.innerHTML = '<p class="carrito-vacio">Tu carrito esta vacio.</p>';
@@ -85,6 +88,7 @@ function mostrarCarrito() {
     localStorage.setItem("carritoPokeDeck", JSON.stringify(carrito));
 }
 
+// Recupero el carrito si ya habia productos guardados.
 function cargarCarritoGuardado() {
     try {
         const carritoGuardado = JSON.parse(localStorage.getItem("carritoPokeDeck"));
@@ -95,6 +99,7 @@ function cargarCarritoGuardado() {
     }
 }
 
+// Si la carta ya existe, solamente aumento su cantidad.
 function agregarAlCarrito(idProducto) {
     const productoEnCarrito = carrito.find((producto) => producto.id === idProducto);
 
@@ -131,6 +136,7 @@ function cerrarCarrito() {
     panelCarrito.setAttribute("aria-hidden", "true");
 }
 
+// Uso un solo evento para los botones creados con JavaScript.
 contenedorProductos.addEventListener("click", (evento) => {
     if (evento.target.classList.contains("boton-agregar")) {
         agregarAlCarrito(Number(evento.target.dataset.id));
@@ -154,6 +160,7 @@ document.querySelector("#abrir-carrito").addEventListener("click", abrirCarrito)
 document.querySelector("#cerrar-carrito").addEventListener("click", cerrarCarrito);
 fondoCarrito.addEventListener("click", cerrarCarrito);
 
+// SweetAlert reemplaza a confirm y alert.
 botonFinalizar.addEventListener("click", async () => {
     const resultado = await Swal.fire({
         title: "Finalizar compra",
@@ -178,6 +185,7 @@ botonFinalizar.addEventListener("click", async () => {
     }
 });
 
+// El buscador filtra solamente las cartas que ya fueron cargadas.
 buscadorProductos.addEventListener("input", () => {
     const textoBuscado = buscadorProductos.value.toLowerCase().trim();
     const productosFiltrados = productos.filter((producto) =>
