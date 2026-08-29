@@ -1,9 +1,15 @@
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const estadoCarga = document.querySelector("#estado-carga");
+const buscadorProductos = document.querySelector("#buscador-productos");
 
 let productos = [];
 
 function mostrarProductos(listaProductos) {
+    if (listaProductos.length === 0) {
+        contenedorProductos.innerHTML = '<p class="sin-resultados">No se encontraron cartas.</p>';
+        return;
+    }
+
     contenedorProductos.innerHTML = listaProductos.map((producto) => `
         <article class="tarjeta-producto">
             <img src="${producto.imagen}" alt="Carta ${producto.nombre}">
@@ -32,5 +38,15 @@ async function cargarProductos() {
         estadoCarga.textContent = "No se pudieron cargar los productos. Intenta nuevamente.";
     }
 }
+
+buscadorProductos.addEventListener("input", () => {
+    const textoBuscado = buscadorProductos.value.toLowerCase().trim();
+    const productosFiltrados = productos.filter((producto) =>
+        producto.nombre.toLowerCase().includes(textoBuscado)
+        || producto.tipo.toLowerCase().includes(textoBuscado)
+    );
+
+    mostrarProductos(productosFiltrados);
+});
 
 cargarProductos();
