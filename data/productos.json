@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "nombre": "Pikachu",
+        "tipo": "Electrico",
+        "precio": 8500,
+        "imagen": "https://images.pokemontcg.io/base1/58_hires.png"
+    },
+    {
+        "id": 2,
+        "nombre": "Charmander",
+        "tipo": "Fuego",
+        "precio": 7200,
+        "imagen": "https://images.pokemontcg.io/base1/46_hires.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Squirtle",
+        "tipo": "Agua",
+        "precio": 7000,
+        "imagen": "https://images.pokemontcg.io/base1/63_hires.png"
+    },
+    {
+        "id": 4,
+        "nombre": "Bulbasaur",
+        "tipo": "Planta",
+        "precio": 6800,
+        "imagen": "https://images.pokemontcg.io/base1/44_hires.png"
+    },
+    {
+        "id": 5,
+        "nombre": "Mewtwo",
+        "tipo": "Psiquico",
+        "precio": 12500,
+        "imagen": "https://images.pokemontcg.io/base1/10_hires.png"
+    },
+    {
+        "id": 6,
+        "nombre": "Gyarados",
+        "tipo": "Agua",
+        "precio": 11000,
+        "imagen": "https://images.pokemontcg.io/base1/6_hires.png"
+    },
+    {
+        "id": 7,
+        "nombre": "Machamp",
+        "tipo": "Lucha",
+        "precio": 9800,
+        "imagen": "https://images.pokemontcg.io/base1/8_hires.png"
+    },
+    {
+        "id": 8,
+        "nombre": "Ninetales",
+        "tipo": "Fuego",
+        "precio": 10500,
+        "imagen": "https://images.pokemontcg.io/base1/12_hires.png"
+    }
+]
