@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PokeDeck, tienda simulada de cartas Pokemon.">
+    <title>PokeDeck | Tienda de cartas Pokemon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="contenedor encabezado__contenido">
+            <a class="marca" href="index.html" aria-label="Ir al inicio de PokeDeck">
+                <span class="marca__icono" aria-hidden="true"></span>
+                <span>PokeDeck</span>
+            </a>
+            <button class="boton-carrito" id="abrir-carrito" type="button" aria-controls="panel-carrito">
+                Carrito <span id="cantidad-carrito">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="contenedor contenido-principal">
+        <section class="presentacion">
+            <p class="presentacion__etiqueta">Cartas para tu coleccion</p>
+            <h1>Encontra tu proxima carta favorita</h1>
+            <p>Explora nuestro catalogo y arma tu compra de manera simple.</p>
+        </section>
+
+        <section class="catalogo" aria-labelledby="titulo-catalogo">
+            <div class="catalogo__cabecera">
+                <h2 id="titulo-catalogo">Cartas disponibles</h2>
+                <label class="buscador" for="buscador-productos">
+                    <span>Buscar</span>
+                    <input id="buscador-productos" type="search" placeholder="Ej: Pikachu" autocomplete="off">
+                </label>
+            </div>
+            <div class="estado-carga" id="estado-carga">Cargando productos...</div>
+            <div class="productos" id="contenedor-productos"></div>
+        </section>
+    </main>
+
+    <aside class="carrito" id="panel-carrito" aria-labelledby="titulo-carrito" aria-hidden="true">
+        <div class="carrito__cabecera">
+            <h2 id="titulo-carrito">Tu carrito</h2>
+            <button class="boton-cerrar" id="cerrar-carrito" type="button" aria-label="Cerrar carrito">&times;</button>
+        </div>
+        <div class="carrito__productos" id="productos-carrito">
+            <p class="carrito-vacio">Tu carrito esta vacio.</p>
+        </div>
+        <div class="carrito__pie">
+            <p>Total: <strong id="total-carrito">$0</strong></p>
+            <button class="boton-finalizar" id="finalizar-compra" type="button">Finalizar compra</button>
+        </div>
+    </aside>
+    <div class="fondo-carrito" id="fondo-carrito"></div>
+
+    <footer class="pie-pagina">
+        <p>PokeDeck - Proyecto final de JavaScript</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
