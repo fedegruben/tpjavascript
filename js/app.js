@@ -43,6 +43,12 @@ async function cargarProductos() {
         mostrarProductos(productos);
     } catch (error) {
         estadoCarga.textContent = "No se pudieron cargar los productos. Intenta nuevamente.";
+        Swal.fire({
+            title: "Error",
+            text: "No se pudieron cargar las cartas.",
+            icon: "error",
+            confirmButtonText: "Aceptar"
+        });
     }
 }
 
